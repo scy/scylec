@@ -1,0 +1,62 @@
+/* scylec base styles */
+@import url(scylec.css);
+
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Share:400,700|Open+Sans:300italic,400italic,400,700,300);
+
+body {
+	font-family: "Open Sans", sans-serif;
+	color: #444;
+	background-color: #fff;
+}
+
+h1, h2, h3, h4 {
+	font-family: Share, sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #555;
+	letter-spacing: 0.05em;
+}
+
+ul > li {
+	list-style-type: square;
+}
+
+ul > li > ul > li {
+	list-style-type: disc;
+}
+
+code.email:before {
+	content: "<";
+}
+
+code.email:after {
+	content: ">";
+}
+
+.slide, body.scylec-mode-presentation {
+	background-color: #eee;
+}
+
+body.scylec-mode-presentation h1, body.scylec-mode-presentation h2 {
+	text-align: center;
+	text-decoration: underline;
+	margin-top: 3em;
+}
+
+body.scylec-mode-presentation a {
+	text-decoration: none;
+}
+
+.slide h3 {
+	margin: 0 0 0.5em;
+	border-bottom: 0.2em solid #555;
+}
+
+.slide li {
+	margin: 0 2em 0.4em;
+}
+
+.slide ul ul {
+	margin-top: 0.4em;
+}
