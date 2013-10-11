@@ -52,9 +52,9 @@ var $markup = $('<div />', {
 	id: 'scylec-markup'
 });
 
-// Remove the original markup on ready and only work on copies.
+// Copy over the original markup on ready to always have a backup.
 onReady(function () {
-	$body.find('> *').appendTo($markup);
+	$body.find('> *').clone().appendTo($markup);
 });
 
 
@@ -193,6 +193,8 @@ var doPresentation = function () {
 		gotoSlide(1);
 		$nav.find('.scylec-slidecount').text($slides.length);
 	}
+	// Throw away ALL the body, we're presenting based on $slides. But keep our nav and viewport there.
+	$body.empty().append($nav).append($viewport);
 	_move2navEnable();
 	_keynavEnable();
 	setMode('presentation');
