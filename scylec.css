@@ -2,6 +2,17 @@ body {
 	font-family: sans-serif;
 }
 
+body.scylec-mode-script .slide {
+	page-break-inside: avoid;
+	width: 40%;
+	float: right;
+	clear: right;
+	border: 1px solid #000;
+	margin: 0 0 0.5em 0.5em;
+	padding: 0.3em;
+	font-size: 85%;
+}
+
 body.scylec-mode-presentation #scylec-viewport {
 	font-size: 250%;
 	transition: -webkit-transform 0.5s;
