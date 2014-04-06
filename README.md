@@ -12,7 +12,7 @@ This is a really early release, there are lots of sharp edges. It’s far from b
 
 ## How do I install or use it?
 
-This is not documented yet. Ha!
+That’s currently still a bit undocumented. Have a look at [Betriebssysteme und Netze](https://github.com/scy/bn), my current scylec-based lecture. Basically, you need a gulpfile, a template and some symlinks.
 
 ## What’s the license?
 
