@@ -1,0 +1,28 @@
+{
+  "name": "scylec",
+  "version": "0.1.0",
+  "description": "markdown-based lecture slides and script system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scy/scylec.git"
+  },
+  "keywords": [
+    "lecture",
+    "markdown"
+  ],
+  "author": "Tim Weber",
+  "bugs": {
+    "url": "https://github.com/scy/scylec/issues"
+  },
+  "homepage": "https://github.com/scy/scylec",
+  "dependencies": {
+    "gulp-clean": "^0.2.4",
+    "gulp-marked": "^0.2.0",
+    "gulp-sass": "^0.7.1",
+    "gulp-wrap": "^0.3.0"
+  }
+}

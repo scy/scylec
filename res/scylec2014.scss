@@ -1,0 +1,157 @@
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Share:400,700|Open+Sans:400italic,400,700|Droid+Serif:400,700,400italic,700italic);
+
+@import "scylec.scss";
+
+$slidebg: #eee;
+$slideborder: darken($slidebg, 20%);
+$defaultfont: "Open Sans", sans-serif;
+
+body {
+	font-family: $defaultfont;
+	color: #444;
+	background-color: #fff;
+}
+
+h1, h2, h3, h4 {
+	font-family: Share, sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #555;
+	letter-spacing: 0.05em;
+}
+
+.slide {
+	background-color: $slidebg;
+
+	img {
+		height: 75%;
+		display: block;
+		margin: 0 auto;
+	}
+
+	img.float-right {
+		float: right;
+		height: auto;
+		width: 50%;
+	}
+
+	img[title]:after {
+		content: attr(title);
+		display: block;
+		text-align: center;
+	}
+
+}
+
+html.scylec-text {
+
+	.viewport {
+		max-width: 50em;
+		margin: 0 auto;
+	}
+
+	h1, h2 {
+		clear: both;
+	}
+
+	.slide {
+		font-size: 65%;
+		float: right;
+		clear: right;
+		width: 20em;
+		border: 1px solid $slideborder;
+		margin: 0 0 0.5em 1.5em;
+		padding: 0.4em;
+
+		h3 {
+			margin: 0.3em 0;
+		}
+
+		ul {
+			margin: 0.5em 0;
+			padding: 0 0.5em 0 2em;
+		}
+
+		li {
+			margin: 0 0.1em 0.1em 0.1em;
+		}
+
+		img {
+			height: auto;
+			max-width: 100%;
+		}
+	}
+
+}
+
+html.scylec-pres {
+
+	.viewport {
+		transition: -webit-transform 5s;
+		-webkit-transform: scale(1, 1);
+	}
+
+	&.scylec-blank .viewport {
+		-webkit-transform: scale(10, 0.05);
+		opacity: 0.5;
+	}
+
+	body {
+		background-color: $slidebg;
+		font-size: 200%;
+	}
+
+	.slide li {
+		margin: 0 0.6em 0.4em;
+	}
+
+	h1, h2 {
+		text-align: center;
+		margin: 3em 2em;
+	}
+
+	h1 {
+		font-size: 250%;
+	}
+
+	h2 {
+		font-size: 175%;
+	}
+
+}
+
+@media print {
+
+	body {
+		color: #000;
+		font-family: Garamond, "Droid Serif", serif;
+	}
+
+	button {
+		display: none;
+	}
+
+	html.scylec-pres {
+		img {
+			max-height: 12cm;
+		}
+	}
+
+	html.scylec-text {
+		.viewport {
+			font-size: 9pt;
+			max-width: 12cm;
+		}
+		h1, h2 {
+			page-break-before: always;
+		}
+		h1:first-child, h1 + h2 {
+			page-break-before: auto;
+		}
+		.slide {
+			font-family: $defaultfont;
+		}
+	}
+
+}

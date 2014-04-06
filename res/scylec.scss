@@ -1,0 +1,29 @@
+html.scylec-pres {
+
+	.viewport > {
+		* {
+			display: none;
+			page-break-before: always;
+		}
+		*:first-child {
+			page-break-before: auto;
+		}
+	}
+
+	@media print {
+		@page {
+			size: landscape;
+		}
+		.viewport > {
+			h1, h2, .slide {
+				display: block;
+				page-break-inside: avoid;
+			}
+		}
+	}
+
+	body .scylec-current {
+		display: block;
+	}
+
+}
