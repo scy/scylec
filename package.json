@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/scy/scylec",
   "dependencies": {
-    "gulp-clean": "^0.2.4",
-    "gulp-marked": "^0.2.0",
-    "gulp-sass": "^0.7.1",
-    "gulp-wrap": "^0.3.0"
+    "gulp-clean": "~0.2.4",
+    "gulp-marked": "scy/gulp-marked",
+    "gulp-sass": "~0.7.1",
+    "gulp-wrap": "~0.3.0"
   }
 }
