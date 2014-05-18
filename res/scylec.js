@@ -10,6 +10,27 @@ var err = function(msg) {
 	return new Error(msg);
 };
 
+// Google Analytics no-op fallback.
+var gaev = function (cat, act, lbl, val) {
+	if (ga) {
+		ga("send", "event", cat, act, lbl, val);
+	}
+};
+
+// Track print requests.
+var trackPrint = function () {
+	gaev("print", "prepare", "start");
+};
+if (window.matchMedia) {
+	window.matchMedia("print").addListener(function (mql) {
+		if (mql.matches) {
+			trackPrint();
+		}
+	});
+} else {
+	window.onbeforeprint = trackPrint;
+}
+
 var enablePresKeys = function () {
 	$doc.on("keydown.scylec_preskeys", function (ev) {
 		switch (ev.which) {
@@ -61,7 +82,9 @@ var scylec = window.scylec = {
 	togglePres: function () {
 		$html.toggleClass("scylec-pres");
 		scylec.init();
-		return scylec.presActive();
+		var isPres = scylec.presActive();
+		gaev("mode", "change", isPres ? "presentation" : "text");
+		return isPres;
 	},
 
 	toggleBlank: function () {
@@ -105,6 +128,7 @@ var scylec = window.scylec = {
 		var $slide = scylec.slide(slide);
 		$slide.addClass("scylec-current");
 		scylec.slides().not($slide).removeClass("scylec-current");
+		gaev("slide", "go", "number", scylec.slideNo());
 		return $slide;
 	},
 
@@ -134,6 +158,7 @@ $(function () {
 		$(this).hide();
 	}).show();
 	if (document.location && document.location.search && document.location.search == "?pres" && !scylec.presActive()) {
+		gaev("mode", "startup", "presentation");
 		$("button").hide();
 		scylec.togglePres();
 	}
