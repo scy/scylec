@@ -19,7 +19,7 @@ var gaev = function (act, lbl, val) {
 
 // Track print requests.
 var trackPrint = function () {
-	gaev("print", "prepare");
+	gaev("printPrepare", scylec.presActive() ? "presentation" : "text");
 };
 if (window.matchMedia) {
 	window.matchMedia("print").addListener(function (mql) {
