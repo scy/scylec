@@ -18,8 +18,18 @@ var gaev = function (act, lbl, val) {
 };
 
 // Track print requests.
+var trackPrintCooldown = false;
 var trackPrint = function () {
-	gaev("printPrepare", scylec.presActive() ? "presentation" : "text");
+	var haveCooldown = !!trackPrintCooldown;
+	if (haveCooldown) {
+		clearTimeout(trackPrintCooldown);
+	}
+	trackPrintCooldown = setTimeout(function () {
+		trackPrintCooldown = false;
+	}, 10000);
+	if (!haveCooldown) {
+		gaev("printPrepare", scylec.presActive() ? "presentation" : "text");
+	}
 };
 if (window.matchMedia) {
 	window.matchMedia("print").addListener(function (mql) {
