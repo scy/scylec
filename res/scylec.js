@@ -102,7 +102,7 @@ var scylec = window.scylec = {
 	},
 
 	slides: function () {
-		return $view.find("> h1, > h2, > h3, > .slide");
+		return $view.find("> h1, > h2, > .slide");
 	},
 
 	slide: function (slide) {
